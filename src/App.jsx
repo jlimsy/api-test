@@ -20,10 +20,11 @@ function App() {
   const apikey = "1331e8039126b4d683d96e90caaf55de";
   const country = "sg";
   const language = "en";
+  const query = "hamas AND gaza";
 
   async function fetchNewsOther() {
     const response = await fetch(
-      `https://gnews.io/api/v4/top-headlines?category=general&lang=${language}&country=${country}&max=10&apikey=${apikey}`
+      `https://gnews.io/api/v4/search?q=${query}&lang=${language}&country=${country}&max=5&apikey=${apikey}`
     );
 
     const result = await response.json();
@@ -32,7 +33,7 @@ function App() {
   }
 
   const handleClickSg = () => fetchWords();
-  const handleClickOther = () => fetchNewsOther();
+  const handleClickOther = () => (fetchNewsOther(), console.log(`${query}`));
 
   return (
     <>
