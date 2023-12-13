@@ -2,24 +2,28 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [newsSG, setNewsSg] = useState({});
+  const [newsSG, setTranslation] = useState({});
   const [newsOther, setNewsOther] = useState({});
 
-  const apiKey = "1331e8039126b4d683d96e90caaf55de";
+  const word = "potato is hot";
 
-  async function fetchNewsSg() {
+  async function fetchWords() {
     const response = await fetch(
-      `https://gnews.io/api/v4/top-headlines?country=sg&apikey=${apiKey}`
+      `https://api.mymemory.translated.net/get?q=${word}&langpair=en|it`
     );
 
     const result = await response.json();
     console.log(result);
-    setNewsSg(result);
+    setTranslation(result);
   }
+
+  const apikey = "1331e8039126b4d683d96e90caaf55de";
+  const country = "sg";
+  const language = "en";
 
   async function fetchNewsOther() {
     const response = await fetch(
-      `http://api.mediastack.com/v1/news?access_key=aba5d7c29918e44207c31ad5a8d52b73&countries=my`
+      `https://gnews.io/api/v4/top-headlines?category=general&lang=${language}&country=${country}&max=10&apikey=${apikey}`
     );
 
     const result = await response.json();
@@ -27,14 +31,14 @@ function App() {
     setNewsOther(result);
   }
 
-  const handleClickSg = () => fetchNewsSg();
+  const handleClickSg = () => fetchWords();
   const handleClickOther = () => fetchNewsOther();
 
   return (
     <>
       <h1>Test APIs</h1>
       <button name="UV" onClick={handleClickSg}>
-        Click here to fetch SG news
+        Click here to fetch words
       </button>
       <button name="2.5" onClick={handleClickOther}>
         Click here to fetch SEA news
