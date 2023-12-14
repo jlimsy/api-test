@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function TranslatorPage() {
   const [words, setWords] = useState({});
@@ -32,6 +33,7 @@ export default function TranslatorPage() {
       <p>
         {words?.articles?.map((item) => `${item.title} + ${item.source.name}`)}
       </p>
+      <NavLink to="/">Home</NavLink>
     </>
   );
 }

@@ -1,20 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import CommentaryPage from "./pages/CommentaryPage/CommentaryPage";
+import NotesPage from "./pages/NotesPage/NotesPage";
 import HomePage from "./pages/Homepage/HomePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import TranslatorPage from "./pages/TranslatorPage/TranslatorPage";
+import NavBar from "./components/Header";
 
 export default function App() {
   return (
     <>
-      <h1>Babel Bites</h1>
-      <hr />
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/translator" element={<TranslatorPage />} />
-        <Route path="/commentary" element={<CommentaryPage />} />
+        <Route path="/commentary" element={<NotesPage />} />
       </Routes>
     </>
   );

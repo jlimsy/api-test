@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import SearchBar from "../../components/SearchBar";
 
 export default function NewsPage() {
   const [news, setNews] = useState({});
@@ -14,9 +15,9 @@ export default function NewsPage() {
       `https://gnews.io/api/v4/search?q=${query}&lang=${language}&country=${country}&max=5&apikey=${apikey}`
     );
 
-    const result = await response.json();
-    console.log(result);
-    setNews(result);
+    const jsonNews = await response.json();
+    console.log(jsonNews);
+    setNews(jsonNews);
   }
 
   const handleNews = () => (fetchNews(), console.log(`${query}`));
@@ -24,12 +25,21 @@ export default function NewsPage() {
   return (
     <>
       <h3>News Page</h3>
-      <button name="2.5" onClick={handleNews}>
+      <SearchBar />
+      <button name="news" onClick={handleNews}>
         Fetch News
       </button>
-      <pre>{JSON.stringify(news, null, 2)}</pre>
-
-      <p>{news?.data?.map((item) => `${item.title} + ${item.source}`)}</p>
+      {/* <pre>{JSON.stringify(news, null, 2)}</pre> */}
+      {news?.articles?.map((item) => (
+        <div className="news" key={item.title}>
+          <div>{`${item.title}`}</div>
+          <div>{`${item.source.name}`}</div>
+          <div>{`${item.content}`}</div>
+          <Link to={`${item.url}`} target="blank">
+            Read more
+          </Link>
+        </div>
+      ))}
       <NavLink to="/">Home</NavLink>
     </>
   );

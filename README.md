@@ -4,7 +4,7 @@ An application for bite-size news and a text translator for aspiring polyglots.
 
 ## Features
 
-- Filter for news based on country and language
+- Filter for news from 30 countries and 22 languages
 - Highlight words and phrases with option to translate into various languages
 - Highlight words and phrases to post your own comments
 - Translator page
