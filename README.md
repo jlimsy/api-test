@@ -1,13 +1,23 @@
-# The Daily Commit
+# Babel Bites
 
-An application that allows you to obtain news from various sources, filter by language,
+An application for bite-size news and a text translator for aspiring polyglots.
 
 ## Features
 
-Filter
-Highlight - Annotation
-Multilingual translation of words - Dictionary API
-Wireframe
+- Filter for news based on country and language
+- Highlight words and phrases with option to translate into various languages
+- Highlight words and phrases to post your own comments
+- Translator page
+- Commentary page to post your comments (CRUD)
+
+## Wireframe
+
+### Pages
+
+- Homepage
+- News Page
+- Translation Page
+- Commentary Page
 
 ## Icebox
 
