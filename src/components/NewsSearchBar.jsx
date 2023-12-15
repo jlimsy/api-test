@@ -60,12 +60,10 @@ const languages = {
   Ukrainia: "uk",
 };
 
-const searchTerm = "hello";
-
 console.log(Object.keys(countries));
 
 export default function SearchBar() {
-  const [newsSearch, setNewsSearch] = useState(searchTerm);
+  const [newsSearch, setNewsSearch] = useState("");
 
   const handleNewsSearchChange = (event) => {
     setNewsSearch(event.target.value);
@@ -90,7 +88,7 @@ export default function SearchBar() {
         <input
           name="search"
           placeholder="bites"
-          value=""
+          value={newsSearch}
           onChange={handleNewsSearchChange}
         />
       </label>
