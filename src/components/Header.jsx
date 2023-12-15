@@ -1,15 +1,19 @@
 import { NavLink } from "react-router-dom";
 
-export default function NavBar() {
+export default function Header() {
   return (
     <header>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <nav className="bg-blue-chill-300 border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <NavLink
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src="" className="h-8" alt="Babel Bites Logo" />
+            <img
+              src="https://media.giphy.com/media/gx54W1mSpeYMg/giphy.gif"
+              className="h-8"
+              alt="Babel Bites Logo"
+            />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Babel Bites
             </span>

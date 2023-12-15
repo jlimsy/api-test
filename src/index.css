@@ -1,9 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -13,13 +19,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+*/
+
+@layer base {
+  body {
+    @apply text-blue-chill-600;
+  }
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(-text-blue-chill-500);
   text-decoration: inherit;
 }
+
+
 a:hover {
-  color: #535bf2;
+  color: var(-text-blue-chill-500);
 }
 
 /* body {
@@ -47,7 +63,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(-tw-text-blue-chill-500);
 }
 button:focus,
 button:focus-visible {

@@ -5,10 +5,11 @@ An application for bite-size news and a text translator for aspiring polyglots.
 ## Features
 
 - Primary: Filter for news from 30 countries and 22 languages
-- Primary: Highlight words (onHighlight?) to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
+- Primary: Click on news title to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
 - Primary: Translator page
-- Secondary: Notes page to post your comments (CRUD)
+- Primary: Notes page to post your comments (CRUD)
 - Secondary: Homepage displays top headlines and word of the day in key languages
+- Secondary: Highlight words to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
 
 ## Wireframe
 
@@ -30,8 +31,20 @@ An application for bite-size news and a text translator for aspiring polyglots.
 
 - create your own notes
 - receives highlighted phrase from News Page, and identifies News Title, and Source
-- search bar
 
 ## Icebox
 
+- Search bar on Notes Pages to filter notes
 - Option to have the entire news article loaded
+
+---
+
+### Project Criteria
+
+Use React framework to build your application with at least:
+
+- [x] 5 components
+- [ ] 4 props
+- [ ] 2 useStates
+- [x] 2 react router routes
+- [ ] 1 lifting state, which is used to implement CRUD on the client side

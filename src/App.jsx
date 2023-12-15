@@ -4,12 +4,12 @@ import NotesPage from "./pages/NotesPage/NotesPage";
 import HomePage from "./pages/Homepage/HomePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import TranslatorPage from "./pages/TranslatorPage/TranslatorPage";
-import NavBar from "./components/Header";
+import Header from "./components/Header";
 
 export default function App() {
   return (
     <>
-      <NavBar />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />

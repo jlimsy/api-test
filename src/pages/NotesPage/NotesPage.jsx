@@ -1,13 +1,12 @@
-import { NavLink } from "react-router-dom";
-
-import(NavLink);
+import NoteItem from "../../components/NoteItem";
 
 export default function CommentaryPage() {
   return (
     <>
-      <h3>Commentary Page</h3>
-      <p>Babel your bites here:</p>
-      <NavLink to="/">Home</NavLink>
+      <h1>Babel your bites here:</h1>
+      <NoteItem />
+      <NoteItem />
+      <NoteItem />
     </>
   );
 }
