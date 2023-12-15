@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function NewsCard({ news }) {
-  console.log(news);
-
   // return <pre>{JSON.stringify(news, null, 2)}</pre>;
   return news?.articles?.map((item) => (
     <div
@@ -19,7 +17,7 @@ export default function NewsCard({ news }) {
           {item.title}
         </h5>
         <p className="mb-3 font-normal text-teal-700 dark:text-gray-400">
-          {item.descripton}
+          {item.description}
         </p>
         <Link to={item.source.url}>Read more at {`${item.source.name}`}</Link>
         <Link to="../translator">
