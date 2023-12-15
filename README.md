@@ -29,7 +29,7 @@ An application for bite-size news and a text translator for aspiring polyglots.
 **Notes Page:**
 
 - create your own notes
-- receives highlighted phrase from News Page, and
+- receives highlighted phrase from News Page, and identifies News Title, and Source
 - search bar
 
 ## Icebox
