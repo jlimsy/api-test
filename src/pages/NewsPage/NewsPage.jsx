@@ -1,17 +1,31 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "../../components/SearchBar";
+import NewsSearchBar from "../../components/NewsSearchBar";
 import NewsCard from "../../components/NewsCard";
 
 export default function NewsPage() {
   const [news, setNews] = useState({});
 
-  const newsQuery = {
-    title: "Hard-coded title",
-    summary: "Lorem Ipsum",
-    imgUrl: "https://media.giphy.com/media/2vlC9FMLSmqGs/giphy.gif",
-    source: "Read more",
-  };
+  const newsQuery = [
+    {
+      title: "Hard-coded title",
+      summary: "Lorem Ipsum",
+      imgUrl: "https://media.giphy.com/media/2vlC9FMLSmqGs/giphy.gif",
+      source: "Read more",
+    },
+    {
+      title: "Hard-coded title TWO",
+      summary: "Lorem Ipsum TWO",
+      imgUrl: "https://media.giphy.com/media/2vlC9FMLSmqGs/giphy.gif",
+      source: "Read more",
+    },
+    {
+      title: "Title THREE",
+      summary: "Lorem Ipsum THREE",
+      imgUrl: "https://media.giphy.com/media/2vlC9FMLSmqGs/giphy.gif",
+      source: "Read more",
+    },
+  ];
 
   console.log(newsQuery.title, newsQuery.summary);
 
@@ -35,11 +49,11 @@ export default function NewsPage() {
   return (
     <>
       <h3>News Page</h3>
-      <SearchBar />
+      <NewsSearchBar />
       <button name="news" onClick={handleNews}>
         Fetch News
       </button>
-      {/* <pre>{JSON.stringify(news, null, 2)}</pre>
+      <pre>{JSON.stringify(news, null, 2)}</pre>
       {news?.articles?.map((item) => (
         <div className="news" key={item.title}>
           <div>{`${item.title}`}</div>
@@ -49,7 +63,7 @@ export default function NewsPage() {
             Read more
           </Link>
         </div>
-      ))} */}
+      ))}
       <NewsCard newsQuery={newsQuery} />
     </>
   );

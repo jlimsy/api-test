@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const countries = {
   Any: "any",
   Australia: "au",
@@ -58,9 +60,18 @@ const languages = {
   Ukrainia: "uk",
 };
 
+const searchTerm = "hello";
+
 console.log(Object.keys(countries));
 
 export default function SearchBar() {
+  const [newsSearch, setNewsSearch] = useState(searchTerm);
+
+  const handleNewsSearchChange = (event) => {
+    setNewsSearch(event.target.value);
+    console.log(event.target.value);
+  };
+
   const filterByCountry = Object.keys(countries).map((item) => (
     <option key={countries[item]} value={countries[item]}>
       {[item]}
@@ -76,7 +87,12 @@ export default function SearchBar() {
     <form>
       <label>
         Search for bites:
-        <input name="search" placeholder="bites" />
+        <input
+          name="search"
+          placeholder="bites"
+          value=""
+          onChange={handleNewsSearchChange}
+        />
       </label>
       <label>
         Country:
