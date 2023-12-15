@@ -1,4 +1,4 @@
-import NoteItem from "../../components/NoteItem";
+import NoteItem from "../../components/NoteCard";
 
 export default function CommentaryPage() {
   return (

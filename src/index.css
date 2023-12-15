@@ -23,7 +23,10 @@
 
 @layer base {
   body {
-    @apply text-blue-chill-600;
+    @apply text-teal-600;
+  }
+  h1 {
+    @apply text-xl font-semibold text-teal-600/100 dark:text-teal-500/100;
   }
 }
 

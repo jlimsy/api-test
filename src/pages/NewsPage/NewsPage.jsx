@@ -1,9 +1,19 @@
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar";
+import NewsCard from "../../components/NewsCard";
 
 export default function NewsPage() {
   const [news, setNews] = useState({});
+
+  const newsQuery = {
+    title: "Hard-coded title",
+    summary: "Lorem Ipsum",
+    imgUrl: "https://media.giphy.com/media/2vlC9FMLSmqGs/giphy.gif",
+    source: "Read more",
+  };
+
+  console.log(newsQuery.title, newsQuery.summary);
 
   const apikey = "1331e8039126b4d683d96e90caaf55de";
   const country = "sg";
@@ -29,7 +39,7 @@ export default function NewsPage() {
       <button name="news" onClick={handleNews}>
         Fetch News
       </button>
-      {/* <pre>{JSON.stringify(news, null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify(news, null, 2)}</pre>
       {news?.articles?.map((item) => (
         <div className="news" key={item.title}>
           <div>{`${item.title}`}</div>
@@ -39,8 +49,8 @@ export default function NewsPage() {
             Read more
           </Link>
         </div>
-      ))}
-      <NavLink to="/">Home</NavLink>
+      ))} */}
+      <NewsCard newsQuery={newsQuery} />
     </>
   );
 }

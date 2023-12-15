@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "blue-chill": {
+        teal: {
           50: "#f2f9f9",
           100: "#ddeff0",
           200: "#bfe0e2",
