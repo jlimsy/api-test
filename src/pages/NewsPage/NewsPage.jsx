@@ -53,7 +53,7 @@ export default function NewsPage() {
       <button name="news" onClick={handleNews}>
         Fetch News
       </button>
-      <pre>{JSON.stringify(news, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(news, null, 2)}</pre>
       {news?.articles?.map((item) => (
         <div className="news" key={item.title}>
           <div>{`${item.title}`}</div>
@@ -63,8 +63,8 @@ export default function NewsPage() {
             Read more
           </Link>
         </div>
-      ))}
-      <NewsCard newsQuery={newsQuery} />
+      ))} */}
+      <NewsCard news={news} />
     </>
   );
 }
