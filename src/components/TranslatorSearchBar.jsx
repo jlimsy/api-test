@@ -1,6 +1,9 @@
+import { useState } from "react";
 import googleLanguages from "../assets/languages";
 
 export default function TranslatorSearchBar({ text, setText, fetchText }) {
+  const [language, setLanguage] = useState("en");
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -13,6 +16,11 @@ export default function TranslatorSearchBar({ text, setText, fetchText }) {
   const handleTranslator = (text) => {
     fetchText(text);
     console.log("translation button is clicked");
+  };
+
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+    console.log(event.target.value, "selected");
   };
 
   const selectTranslatorLanguage = Object.keys(googleLanguages).map((item) => (
@@ -36,7 +44,9 @@ export default function TranslatorSearchBar({ text, setText, fetchText }) {
       </label>
       <label>
         Language:
-        <select>{selectTranslatorLanguage}</select>
+        <select value={language} onChange={handleLanguageChange}>
+          {selectTranslatorLanguage}
+        </select>
       </label>
       <button name="translate" onClick={handleTranslator}>
         Translate
