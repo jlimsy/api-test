@@ -1,39 +1,31 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import TranslatorSearchBar from "../../components/TranslatorSearchBar";
+import TranslatorCard from "../../components/TranslatorCard";
 
 export default function TranslatorPage() {
-  const [words, setWords] = useState({});
+  const [text, setText] = useState({});
 
-  const word = "coding is fun";
-
-  async function fetchWords() {
+  async function fetchText() {
     const response = await fetch(
-      `https://api.mymemory.translated.net/get?q=${word}&langpair=en|es`
+      `https://api.mymemory.translated.net/get?q=${text}&langpair=en|fr`
     );
-
     const result = await response.json();
     console.log(result);
-    setWords(result);
+    setText(result);
   }
-
-  const handleTranslator = () => fetchWords();
 
   return (
     <>
-      <h3>Translator Page</h3>
-      <label>
-        Word:
-        <input placeholder="type here" />
-      </label>
-      <button>Translate</button>
-      <button name="translate" onClick={handleTranslator}>
-        Fetch words
-      </button>
-      <pre>{JSON.stringify(words, null, 2)}</pre>
+      <h1>Babel your bites here:</h1>
+
+      <TranslatorSearchBar setText={setText} fetchText={fetchText} />
+
+      <TranslatorCard />
+
+      <pre>{JSON.stringify(text, null, 2)}</pre>
       <p>
-        {words?.articles?.map((item) => `${item.title} + ${item.source.name}`)}
+        {text?.articles?.map((item) => `${item.title} + ${item.source.name}`)}
       </p>
-      <NavLink to="/">Home</NavLink>
     </>
   );
 }

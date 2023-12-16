@@ -60,7 +60,7 @@ const languages = {
 
 console.log(Object.keys(countries));
 
-export default function SearchBar({ query, setQuery, fetchNews }) {
+export default function SearchBar({ query, setQuery }) {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
