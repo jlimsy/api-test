@@ -6,7 +6,7 @@ An application for bite-size news and a text translator for aspiring polyglots.
 
 - Primary: Filter for news from 30 countries and 22 languages
 - Primary: Click on news title to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
-- Primary: Translator page
+- Primary: Translator page allows translation of 100+ languages
 - Primary: Notes page to post your comments (CRUD)
 - Secondary: Homepage displays top headlines and word of the day in key languages
 - Secondary: Highlight words to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
