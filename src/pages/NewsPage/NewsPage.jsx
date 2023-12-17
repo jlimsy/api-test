@@ -23,7 +23,7 @@ export default function NewsPage() {
     <>
       <h3>News Page</h3>
       <NewsSearchBar query={query} setQuery={setQuery} fetchNews={fetchNews} />
-      <NewsCard news={news} fetchNews={fetchNews} />
+      <NewsCard news={news} />
     </>
   );
 }

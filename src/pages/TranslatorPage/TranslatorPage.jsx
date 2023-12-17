@@ -18,7 +18,11 @@ export default function TranslatorPage() {
     <>
       <h1>Babel your bites here:</h1>
 
-      <TranslatorSearchBar setText={setText} fetchText={fetchText} />
+      <TranslatorSearchBar
+        text={text}
+        setText={setText}
+        fetchText={fetchText}
+      />
 
       <TranslatorCard text={text} />
       <p>{text?.["responseData"]?.["translatedText"]}</p>
