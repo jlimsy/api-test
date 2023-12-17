@@ -5,7 +5,7 @@ import TranslatorCard from "../../components/TranslatorCard";
 export default function TranslatorPage() {
   const [text, setText] = useState("");
   const [query, setQuery] = useState("");
-  const [language, setLanguage] = useState("");
+  const [language, setLanguage] = useState("en");
 
   async function fetchText(query, language) {
     const response = await fetch(

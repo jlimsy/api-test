@@ -17,14 +17,14 @@ export default function TranslatorSearchBar({
   };
 
   const handleTranslator = () => {
-    fetchText(query);
+    fetchText(query, language);
     console.log("what is text", query);
     console.log("translate button clicked");
   };
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
-    console.log("what is lang", event.target.value);
+    // console.log(event.target.value);
   };
 
   const selectTranslatorLanguage = Object.keys(googleLanguages).map((item) => (
