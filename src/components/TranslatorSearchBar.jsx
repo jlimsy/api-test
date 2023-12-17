@@ -1,9 +1,12 @@
-import { useState } from "react";
 import googleLanguages from "../assets/languages";
 
-export default function TranslatorSearchBar({ query, setQuery, fetchText }) {
-  const [language, setLanguage] = useState("en");
-
+export default function TranslatorSearchBar({
+  query,
+  setQuery,
+  language,
+  setLanguage,
+  fetchText,
+}) {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -21,12 +24,12 @@ export default function TranslatorSearchBar({ query, setQuery, fetchText }) {
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
-    console.log(event.target.value, "selected");
+    console.log("what is lang", event.target.value);
   };
 
   const selectTranslatorLanguage = Object.keys(googleLanguages).map((item) => (
     <option key={googleLanguages[item]} value={googleLanguages[item]}>
-      {[item]}
+      {[item]} ({googleLanguages[item]})
     </option>
   ));
 
