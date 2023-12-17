@@ -3,7 +3,7 @@ import NewsSearchBar from "../../components/NewsSearchBar";
 import NewsCard from "../../components/NewsCard";
 
 export default function NewsPage() {
-  const [news, setNews] = useState({});
+  const [news, setNews] = useState();
   const [query, setQuery] = useState();
 
   const apikey = "1331e8039126b4d683d96e90caaf55de";

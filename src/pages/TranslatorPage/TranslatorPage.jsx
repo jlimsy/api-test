@@ -4,10 +4,11 @@ import TranslatorCard from "../../components/TranslatorCard";
 
 export default function TranslatorPage() {
   const [text, setText] = useState();
+  const [query, setQuery] = useState();
 
-  async function fetchText(text) {
+  async function fetchText(query) {
     const response = await fetch(
-      `https://api.mymemory.translated.net/get?q=${text}&langpair=en|fr`
+      `https://api.mymemory.translated.net/get?q=${query}&langpair=en|fr`
     );
     const jsonText = await response.json();
     // console.log(jsonText);
@@ -19,13 +20,12 @@ export default function TranslatorPage() {
       <h1>Babel your bites here:</h1>
 
       <TranslatorSearchBar
-        text={text}
-        setText={setText}
+        query={query}
+        setQuery={setQuery}
         fetchText={fetchText}
       />
 
       <TranslatorCard text={text} />
-      <p>{text?.["responseData"]?.["translatedText"]}</p>
     </>
   );
 }

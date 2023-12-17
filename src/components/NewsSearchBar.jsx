@@ -71,7 +71,7 @@ export default function SearchBar({ query, setQuery, fetchNews }) {
   };
 
   const handleFetchNews = () => {
-    fetchNews(query), console.log("what is the query", `${query}`);
+    fetchNews(query);
   };
 
   const filterByCountry = Object.keys(countries).map((item) => (
