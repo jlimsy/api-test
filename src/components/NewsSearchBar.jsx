@@ -60,14 +60,18 @@ const languages = {
 
 console.log(Object.keys(countries));
 
-export default function SearchBar({ query, setQuery }) {
+export default function SearchBar({ query, setQuery, fetchNews }) {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
   const handleInputChange = (event) => {
-    console.log(event.target.value);
     setQuery(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleFetchNews = () => {
+    fetchNews(query), console.log("what is the query", `${query}`);
   };
 
   const filterByCountry = Object.keys(countries).map((item) => (
@@ -102,6 +106,9 @@ export default function SearchBar({ query, setQuery }) {
         Language:
         <select>{filterByLanguage}</select>
       </label>
+      <button name="news" onClick={handleFetchNews}>
+        Search News
+      </button>
     </form>
   );
 }

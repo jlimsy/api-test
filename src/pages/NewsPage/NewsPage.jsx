@@ -19,16 +19,11 @@ export default function NewsPage() {
     setNews(jsonNews);
   }
 
-  const handleNews = () => (fetchNews(query), console.log(`${query}`));
-
   return (
     <>
       <h3>News Page</h3>
-      <NewsSearchBar setQuery={setQuery} fetchNews={fetchNews} />
-      <button name="news" onClick={handleNews}>
-        Search News
-      </button>
-      <NewsCard news={news} handleNews={handleNews} />
+      <NewsSearchBar query={query} setQuery={setQuery} fetchNews={fetchNews} />
+      <NewsCard news={news} fetchNews={fetchNews} />
     </>
   );
 }

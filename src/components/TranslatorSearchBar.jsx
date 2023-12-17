@@ -13,9 +13,10 @@ export default function TranslatorSearchBar({ text, setText, fetchText }) {
     setText(event.target.value);
   };
 
-  const handleTranslator = (text) => {
+  const handleTranslator = () => {
     fetchText(text);
-    console.log("translation button is clicked");
+    console.log("what is text", text);
+    console.log("translate button clicked");
   };
 
   const handleLanguageChange = (event) => {
