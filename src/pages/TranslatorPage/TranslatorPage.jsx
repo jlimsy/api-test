@@ -3,8 +3,8 @@ import TranslatorSearchBar from "../../components/TranslatorSearchBar";
 import TranslatorCard from "../../components/TranslatorCard";
 
 export default function TranslatorPage() {
-  const [text, setText] = useState();
-  const [query, setQuery] = useState();
+  const [text, setText] = useState("");
+  const [query, setQuery] = useState("");
 
   async function fetchText(query) {
     const response = await fetch(
