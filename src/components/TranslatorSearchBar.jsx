@@ -3,8 +3,10 @@ import googleLanguages from "../assets/languages";
 export default function TranslatorSearchBar({
   query,
   setQuery,
-  language,
-  setLanguage,
+  languageFrom,
+  setLanguageFrom,
+  languageTo,
+  setLanguageTo,
   fetchText,
 }) {
   const handleSubmit = (event) => {
@@ -17,14 +19,19 @@ export default function TranslatorSearchBar({
   };
 
   const handleTranslator = () => {
-    fetchText(query, language);
-    console.log("what is text", query);
+    fetchText(query, languageFrom, languageTo);
+    console.log(query, languageFrom, languageTo);
     console.log("translate button clicked");
   };
 
-  const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
-    // console.log(event.target.value);
+  const handleLanguageChangeFrom = (event) => {
+    setLanguageFrom(event.target.value);
+    console.log("set language from", event.target.value);
+  };
+
+  const handleLanguageChangeTo = (event) => {
+    setLanguageTo(event.target.value);
+    console.log("set language to", event.target.value);
   };
 
   const selectTranslatorLanguage = Object.keys(googleLanguages).map((item) => (
@@ -34,21 +41,29 @@ export default function TranslatorSearchBar({
   ));
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="grid grid-cols-4 gap-5 justify-items-center"
+    >
       <label>
-        Search for words:
+        Text to translate:
         <div className="relative"></div>
         <input
           name="search"
           placeholder="babel here"
           value={query}
           onChange={handleInputChange}
-          className="block p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
       </label>
       <label>
-        Language:
-        <select value={language} onChange={handleLanguageChange}>
+        From:
+        <select value={languageFrom} onChange={handleLanguageChangeFrom}>
+          {selectTranslatorLanguage}
+        </select>
+      </label>
+      <label>
+        To:
+        <select value={languageTo} onChange={handleLanguageChangeTo}>
           {selectTranslatorLanguage}
         </select>
       </label>

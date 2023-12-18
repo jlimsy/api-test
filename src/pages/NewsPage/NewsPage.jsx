@@ -22,7 +22,7 @@ export default function NewsPage() {
 
   return (
     <>
-      <h1>News Page</h1>
+      <h1>Search for news bites:</h1>
       <NewsSearchBar
         query={query}
         setQuery={setQuery}
@@ -32,9 +32,13 @@ export default function NewsPage() {
         setCountry={setCountry}
         fetchNews={fetchNews}
       />
-      {news?.articles?.map((item, idx) => (
-        <NewsCard key={idx} item={item} />
-      ))}
+      <div className="grid grid-cols-3 gap-5">
+        {news?.articles?.map((item, idx) => (
+          <div key={idx} className="h-20 w-50">
+            <NewsCard item={item} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

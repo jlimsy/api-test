@@ -104,7 +104,10 @@ export default function SearchBar({
     </option>
   ));
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className="grid grid-cols-4 gap-5 justify-items-center"
+      onSubmit={handleSubmit}
+    >
       <label>
         Search for bites:
         <input
@@ -112,7 +115,6 @@ export default function SearchBar({
           placeholder="bites"
           value={query}
           onChange={handleInputChange}
-          className="block p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
         />
       </label>
       <label>

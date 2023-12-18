@@ -23,7 +23,6 @@ const googleLanguages = {
   Czech: "cs",
   Danish: "da",
   Dhivehi: "dv",
-  Dogri: "doi",
   Dutch: "nl",
   English: "en",
   Esperanto: "eo",
