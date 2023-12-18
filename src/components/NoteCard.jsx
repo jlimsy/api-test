@@ -1,16 +1,28 @@
-export default function NoteItem() {
+export default function NoteCard({ item }) {
+  const handleDeleteClick = () => {
+    // handleDelete(item.id);
+    console.log("item.id", item.id);
+  };
+
+  const handleEditClick = () => {
+    console.log("Edit button clicked");
+  };
+
   return (
     <>
       <div
         name="note"
         className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
-        <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Title
-        </h3>
-        <p>Commentary goes here ooh la la</p>
-        <button name="deleteNote">Delete</button>
-        <button name="deleteNote">Edit</button>
+        <h2>Title: {item.fields.title}</h2>
+        <p>Note: {item.fields.notes}</p>
+        <p>Item ID: {item.id}</p>
+        <button name="deleteNote" onClick={handleDeleteClick}>
+          Delete
+        </button>
+        <button name="deleteNote" onClick={handleEditClick}>
+          Edit
+        </button>
       </div>
     </>
   );

@@ -1,0 +1,24 @@
+meta {
+  name: Create
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://api.airtable.com/v0/appRSTnZc4EJjRHwg/Table%201
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer patMs26b6QKdVgo2Q.006923b37a5dd0fdeef341ca5f680ade9ecf24c9f12fe957518c9a91d1635adc
+}
+
+body:json {
+  {
+    "fields": {
+      "title": "Title via Airtable",
+      "notes": "Creating a note via Airtable."
+    }
+  }
+}
