@@ -21,9 +21,11 @@ export default function NewsPage() {
 
   return (
     <>
-      <h3>News Page</h3>
+      <h1>News Page</h1>
       <NewsSearchBar query={query} setQuery={setQuery} fetchNews={fetchNews} />
-      <NewsCard news={news} />
+      {news?.articles?.map((item, idx) => (
+        <NewsCard key={idx} item={item} />
+      ))}
     </>
   );
 }
