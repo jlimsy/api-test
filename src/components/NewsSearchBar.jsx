@@ -33,7 +33,7 @@ const countries = {
 };
 
 const languages = {
-  None: "none",
+  Any: "any",
   Arabic: "ar",
   Chinese: "zh",
   Dutch: "nl",
@@ -60,7 +60,15 @@ const languages = {
 
 console.log(Object.keys(countries));
 
-export default function SearchBar({ query, setQuery, fetchNews }) {
+export default function SearchBar({
+  query,
+  setQuery,
+  language,
+  setLanguage,
+  country,
+  setCountry,
+  fetchNews,
+}) {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -71,7 +79,17 @@ export default function SearchBar({ query, setQuery, fetchNews }) {
   };
 
   const handleFetchNews = () => {
-    fetchNews(query);
+    fetchNews(query, language, country);
+  };
+
+  const handleCountryChange = (event) => {
+    setCountry(event.target.value);
+    console.log(`country ${event.target.value} selected`);
+  };
+
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+    console.log(`language ${event.target.value} selected`);
   };
 
   const filterByCountry = Object.keys(countries).map((item) => (
@@ -99,11 +117,11 @@ export default function SearchBar({ query, setQuery, fetchNews }) {
       </label>
       <label>
         Country:
-        <select>{filterByCountry}</select>
+        <select onChange={handleCountryChange}>{filterByCountry}</select>
       </label>
       <label>
         Language:
-        <select>{filterByLanguage}</select>
+        <select onChange={handleLanguageChange}>{filterByLanguage}</select>
       </label>
 
       <button name="news" onClick={handleFetchNews}>
