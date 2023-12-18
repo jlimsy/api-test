@@ -1,15 +1,23 @@
-export default function NoteForm() {
+export default function NoteForm({ fetchCreateNote }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const handleCreate = () => {
+    fetchCreateNote();
+    console.log("Create note button clicked");
+  };
+
   return (
     <>
       <h1>Form</h1>
-      <hr />
-      <form>
+      <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
         <div>
           <label
             htmlFor="small-input"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Title of your babel tape:
+            Title of your babel:
           </label>
           <input
             type="text"
@@ -32,7 +40,7 @@ export default function NoteForm() {
           />
         </div>
 
-        <button>Babel a note</button>
+        <button onClick={handleCreate}>Babel a note</button>
       </form>
     </>
   );

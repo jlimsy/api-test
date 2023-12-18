@@ -28,6 +28,27 @@ export default function CommentaryPage() {
 
   console.log("notes:", notes);
 
+  const fetchCreateNote = async () => {
+    console.log("fetching Create Note");
+    const newNote = {
+      fields: {
+        title: "Posted by fetch",
+        notes: "This note is posted by fetch",
+      },
+    };
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(newNote),
+    });
+    const jsonNewNote = await response.json();
+    setNotes([jsonNewNote, ...notes]);
+  };
+
   // const handleDelete = () => {
   //   async function fetchNoteDelete() {
   //     const response = await fetch(url, {
@@ -50,10 +71,12 @@ export default function CommentaryPage() {
   return (
     <>
       <h1>Babel your bites here:</h1>
-      {notes?.records?.map((item) => (
-        <NoteCard key={item.id} item={item} />
-      ))}
-      <NoteForm />
+      <div className="grid grid-cols-3 justify-center">
+        {notes?.records?.map((item) => (
+          <NoteCard key={item.id} item={item} />
+        ))}
+      </div>
+      <NoteForm fetchCreateNote={fetchCreateNote} />
     </>
   );
 }

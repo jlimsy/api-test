@@ -16,6 +16,7 @@ export default function NoteCard({ item }) {
       >
         <h2>Title: {item.fields.title}</h2>
         <p>Note: {item.fields.notes}</p>
+        <p className="text-xs">{new Date(item.createdTime).toString()}</p>
         <p>Item ID: {item.id}</p>
         <button name="deleteNote" onClick={handleDeleteClick}>
           Delete
