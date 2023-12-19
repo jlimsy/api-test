@@ -6,8 +6,9 @@ const url = "https://api.airtable.com/v0/appRSTnZc4EJjRHwg/Notes/";
 const token =
   "patMs26b6QKdVgo2Q.006923b37a5dd0fdeef341ca5f680ade9ecf24c9f12fe957518c9a91d1635adc";
 
-export default function CommentaryPage() {
+export default function NotesPage() {
   const [notes, setNotes] = useState("");
+  const [newNote, setNewNote] = useState({});
 
   useEffect(() => {
     async function fetchNotes() {
@@ -28,14 +29,9 @@ export default function CommentaryPage() {
 
   console.log("notes:", notes);
 
-  const fetchCreateNote = async () => {
-    console.log("fetching Create Note");
-    const newNote = {
-      fields: {
-        title: "Posted by fetch",
-        notes: "This note is posted by fetch",
-      },
-    };
+  const fetchCreateNote = async (newNote) => {
+    // console.log("fetching Create Note");
+    // console.log("newNote", JSON.stringify(newNote));
 
     const response = await fetch(url, {
       method: "POST",
@@ -43,10 +39,12 @@ export default function CommentaryPage() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+
       body: JSON.stringify(newNote),
     });
     const jsonNewNote = await response.json();
-    setNotes([jsonNewNote]);
+    // console.log("jsonNewNote", jsonNewNote);
+    setNotes({ records: [jsonNewNote, ...notes.records] });
   };
 
   const handleDelete = async (id) => {
@@ -74,7 +72,11 @@ export default function CommentaryPage() {
           ))}
         </div>
         <div className="col-span-1 bg-teal-300">
-          <NoteForm fetchCreateNote={fetchCreateNote} />
+          <NoteForm
+            fetchCreateNote={fetchCreateNote}
+            newNote={newNote}
+            setNewNote={setNewNote}
+          />
         </div>
       </div>
     </>

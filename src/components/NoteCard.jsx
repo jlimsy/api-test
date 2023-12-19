@@ -14,8 +14,8 @@ export default function NoteCard({ item, handleDelete }) {
         name="note"
         className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
-        <h2>Title: {item.fields.title}</h2>
-        <p>Note: {item.fields.notes}</p>
+        <h2>{item.fields.title}</h2>
+        <p>{item.fields.notes}</p>
         <p className="text-xs">{new Date(item.createdTime).toString()}</p>
         <p className="text-xs">Item ID: {item.id}</p>
         <button name="deleteNote" onClick={handleDeleteClick}>
