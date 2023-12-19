@@ -62,6 +62,35 @@ export default function NotesPage() {
     }));
   };
 
+  // const handleEdit = async (id) => {
+  //   const data = {
+  //     fields: {
+  //       title: "EDIT TITLE",
+  //       body: "Testing Edit Note",
+  //     },
+  //   };
+
+  //   console.log("code to update airtablr goes here");
+  //   const response = await fetch(`${url}${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     body: JSON.stringify(data),
+  //   });
+  //   const jsonEditNote = await response.json();
+  //   setNotes(
+  //     notes.records.map((item) => {
+  //       if (item.id === id) {
+  //         return jsonEditNote;
+  //       } else {
+  //         return item;
+  //       }
+  //     })
+  //   );
+  // };
+
   return (
     <>
       <h1>Babel your bites here:</h1>

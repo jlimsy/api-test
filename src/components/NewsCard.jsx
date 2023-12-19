@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 
 export default function NewsCard({ item }) {
-  // return <pre>{JSON.stringify(news, null, 2)}</pre>;
+  const handleTranslate = () => {
+    console.log("translate button is clicked", item.title);
+    // pass setText down
+  };
+
   return (
     <div className="flex flex-row m-10 items-center text-left bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800">
       <img
@@ -22,7 +26,7 @@ export default function NewsCard({ item }) {
           Read more at {`${item.source.name}`}
         </Link>
         <Link to="../translator">
-          <button>Translate</button>
+          <button onClick={handleTranslate}>Translate</button>
         </Link>
         <Link to="../notes">
           <button>Notes</button>

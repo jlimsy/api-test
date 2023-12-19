@@ -3,7 +3,7 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
     event.preventDefault();
   };
 
-  const handleCreate = () => {
+  const handleCreateNote = () => {
     fetchCreateNote(newNote);
     // console.log("newNote", newNote);
   };
@@ -48,7 +48,7 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
           </label>
         </div>
 
-        <button onClick={handleCreate}>Babel a note</button>
+        <button onClick={handleCreateNote}>Babel a note</button>
       </form>
     </>
   );

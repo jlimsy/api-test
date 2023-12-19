@@ -1,11 +1,16 @@
+import { useState } from "react";
+
 export default function NoteCard({ item, handleDelete }) {
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [editedNote, setEditedNote] = useState({ ...item });
+
   const handleDeleteClick = () => {
     handleDelete(item.id);
     console.log("item.id", item.id);
   };
 
   const handleEditClick = () => {
-    console.log("Edit button clicked");
+    console.log("Edit button clicked", item.id);
   };
 
   return (
