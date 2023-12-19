@@ -1,6 +1,6 @@
-export default function NoteCard({ item }) {
+export default function NoteCard({ item, handleDelete }) {
   const handleDeleteClick = () => {
-    // handleDelete(item.id);
+    handleDelete(item.id);
     console.log("item.id", item.id);
   };
 
@@ -17,11 +17,11 @@ export default function NoteCard({ item }) {
         <h2>Title: {item.fields.title}</h2>
         <p>Note: {item.fields.notes}</p>
         <p className="text-xs">{new Date(item.createdTime).toString()}</p>
-        <p>Item ID: {item.id}</p>
+        <p className="text-xs">Item ID: {item.id}</p>
         <button name="deleteNote" onClick={handleDeleteClick}>
           Delete
         </button>
-        <button name="deleteNote" onClick={handleEditClick}>
+        <button name="editNote" onClick={handleEditClick}>
           Edit
         </button>
       </div>

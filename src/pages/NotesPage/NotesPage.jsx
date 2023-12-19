@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import NoteCard from "../../components/NoteCard";
 import NoteForm from "../../components/NoteForm";
 
-const url = "https://api.airtable.com/v0/appRSTnZc4EJjRHwg/Notes";
+const url = "https://api.airtable.com/v0/appRSTnZc4EJjRHwg/Notes/";
 const token =
   "patMs26b6QKdVgo2Q.006923b37a5dd0fdeef341ca5f680ade9ecf24c9f12fe957518c9a91d1635adc";
 
@@ -46,37 +46,37 @@ export default function CommentaryPage() {
       body: JSON.stringify(newNote),
     });
     const jsonNewNote = await response.json();
-    setNotes([jsonNewNote, ...notes]);
+    setNotes([jsonNewNote]);
   };
 
-  // const handleDelete = () => {
-  //   async function fetchNoteDelete() {
-  //     const response = await fetch(url, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-
-  //     const jsonNote = await response.json();
-  //     // console.log(jsonNote);
-  //     setNotes(jsonNote);
-  //   }
-
-  //   fetchNoteDelete();
-
-  //   console.log("DeleteNote button clicked");
-  // };
+  const handleDelete = async (id) => {
+    const response = await fetch(`${url}${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const jsonDelNote = await response.json();
+    console.log("jsonDelNote", jsonDelNote);
+    setNotes((notes) => ({
+      records: notes?.records?.filter((item) => item.id !== jsonDelNote.id),
+    }));
+  };
 
   return (
     <>
       <h1>Babel your bites here:</h1>
-      <div className="grid grid-cols-3 justify-center">
-        {notes?.records?.map((item) => (
-          <NoteCard key={item.id} item={item} />
-        ))}
+      <div className="grid grid-cols-3">
+        <div className="col-span-2 grid grid-cols-2 gap-10 content-center">
+          {notes?.records?.map((item) => (
+            <NoteCard key={item.id} item={item} handleDelete={handleDelete} />
+          ))}
+        </div>
+        <div className="col-span-1 bg-teal-300">
+          <NoteForm fetchCreateNote={fetchCreateNote} />
+        </div>
       </div>
-      <NoteForm fetchCreateNote={fetchCreateNote} />
     </>
   );
 }

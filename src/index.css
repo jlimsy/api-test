@@ -20,7 +20,7 @@
 @layer base {
 
   body {
-    @apply h-screen w-screen bg-neutral-900 text-teal-400 text-center;
+    @apply min-h-screen w-screen bg-neutral-900 text-teal-400 text-center;
   }
   h1 {
     @apply text-xl font-semibold text-teal-400 dark:text-teal-400;

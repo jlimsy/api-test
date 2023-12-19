@@ -47,4 +47,4 @@ Use React framework to build your application with at least:
 - [x] 4 props
 - [x] 2 useStates
 - [x] 2 react router routes
-- [ ] 1 lifting state, which is used to implement CRUD on the client side
+- [x] 1 lifting state, which is used to implement CRUD on the client side
