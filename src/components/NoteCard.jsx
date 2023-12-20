@@ -27,10 +27,11 @@ export default function NoteCard({
         name="note"
         className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
-        <h2>{item.fields.title}</h2>
-        <p>{item.fields.body}</p>
-        <p className="text-xs">{new Date(item.createdTime).toString()}</p>
-        <p className="text-xs">Item ID: {item.id}</p>
+        <p>{item.fields.title}</p>
+        <p className="font-bold">{item.fields.body}</p>
+        <hr className="h-1 my-4 border-0 rounded dark:bg-gray-700" />
+        <p className="text-sm">{new Date(item.createdTime).toDateString()}</p>
+        <p className="text-xs mb-5">{item.id}</p>
         {showModal && (
           <>
             <NewsEditModal
@@ -39,7 +40,7 @@ export default function NoteCard({
               editNote={editNote}
               setEditNote={setEditNote}
               setShowModal={setShowModal}
-            />{" "}
+            />
             <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
           </>
         )}

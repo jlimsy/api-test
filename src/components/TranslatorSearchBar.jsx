@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import googleLanguages from "../assets/languages";
 
@@ -12,11 +12,9 @@ export default function TranslatorSearchBar({
   fetchText,
 }) {
   const { selectedText } = useParams();
-  // const [selectedTextExists, setSelectedTextExists] = useState(false);
 
   useEffect(() => {
     if (selectedText) {
-      // setSelectedTextExists(true);
       setQuery(selectedText);
     }
   }, [selectedText, setQuery]);
@@ -26,17 +24,8 @@ export default function TranslatorSearchBar({
   };
 
   const handleInputChange = (event) => {
-    // if (!selectedTextExists) {
-    //   setQuery(event.target.value);
-    // }
     setQuery(event.target.value);
   };
-
-  // const handleInputChange = (event) => {
-  //   console.log("selectedText", selectedText);
-  //   console.log(event.target.value);
-  //   setQuery(event.target.value);
-  // };
 
   const handleTranslateClick = () => {
     fetchText(query, languageFrom, languageTo);

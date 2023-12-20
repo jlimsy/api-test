@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NoteCard from "../../components/NoteCard";
 import NoteForm from "../../components/NoteForm";
+import { Button, Spinner } from "flowbite-react";
 
 const url = "https://api.airtable.com/v0/appRSTnZc4EJjRHwg/Notes/";
 const token =
@@ -10,9 +11,11 @@ export default function NotesPage() {
   const [notes, setNotes] = useState("");
   const [newNote, setNewNote] = useState({});
   const [editNote, setEditNote] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchNotes() {
+      setLoading(true);
       const response = await fetch(url, {
         headers: {
           "Content-Type": "application/json",
@@ -23,6 +26,7 @@ export default function NotesPage() {
       const jsonNotes = await response.json();
       // console.log(jsonNotes);
       setNotes(jsonNotes);
+      setLoading(false);
     }
 
     fetchNotes();
@@ -83,6 +87,17 @@ export default function NotesPage() {
       records: notes?.records?.filter((item) => item.id !== jsonDelNote.id),
     }));
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center">
+        <Button color="gray">
+          <Spinner aria-label="Spinner button example" size="xl" />
+          <span className="pl-3">Loading...</span>
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <>
