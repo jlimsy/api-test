@@ -101,7 +101,6 @@ export default function NotesPage() {
 
   return (
     <>
-      <h1>Babel your bites here:</h1>
       <div className="grid grid-cols-3">
         <div className="col-span-2 grid grid-cols-2 gap-10 content-center">
           {notes?.records?.map((item) => (

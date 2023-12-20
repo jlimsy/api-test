@@ -1,6 +1,16 @@
 import { useState } from "react";
 import NewsEditModal from "./NewsEditModal";
 
+const options = {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+  hour12: false, // Use 24-hour format
+};
+
 export default function NoteCard({
   item,
   handleEdit,
@@ -30,7 +40,9 @@ export default function NoteCard({
         <p>{item.fields.title}</p>
         <p className="font-bold">{item.fields.body}</p>
         <hr className="h-1 my-4 border-0 rounded dark:bg-gray-700" />
-        <p className="text-sm">{new Date(item.createdTime).toDateString()}</p>
+        <p className="text-sm">
+          {new Date(item.createdTime).toLocaleString("en-US", options)}
+        </p>
         <p className="text-xs mb-5">{item.id}</p>
         {showModal && (
           <>
