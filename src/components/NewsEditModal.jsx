@@ -16,6 +16,7 @@ export default function NewsEditModal({
   const handleEditNote = () => {
     handleEdit(item.id, editNote);
     setEditNote(editNote);
+    setShowModal(false);
     console.log(editNote);
   };
 

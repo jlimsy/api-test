@@ -53,17 +53,21 @@ export default function NotesPage() {
       body: JSON.stringify(editNote),
     });
 
+    console.log("editNote", editNote);
+
     const jsonEditNote = await response.json();
     console.log("jsonEditNote", jsonEditNote);
-    setNotes(
-      notes?.records?.map((item) => {
-        if (item.id === id) {
+
+    setNotes((notes) => ({
+      records: notes?.records?.map((item) => {
+        if (item.id === jsonEditNote.id) {
+          console.log("match!");
           return jsonEditNote;
         } else {
           return item;
         }
-      })
-    );
+      }),
+    }));
   };
 
   const handleDelete = async (id) => {
