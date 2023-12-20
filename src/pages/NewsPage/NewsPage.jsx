@@ -32,12 +32,12 @@ export default function NewsPage() {
         setCountry={setCountry}
         fetchNews={fetchNews}
       />
-      <div className="grid grid-cols-3 gap-5">
-        {news?.articles?.map((item, idx) => (
-          <div key={idx} className="h-20 w-50">
-            <NewsCard item={item} />
-          </div>
-        ))}
+      <div className="flex justify-center items-center">
+        <div className="grid grid-row-5 gap-10">
+          {news?.articles?.map((item, idx) => (
+            <NewsCard key={idx} item={item} />
+          ))}
+        </div>
       </div>
     </>
   );

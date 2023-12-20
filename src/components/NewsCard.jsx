@@ -1,13 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function NewsCard({ item }) {
+  const [selectedText, setSelectedText] = useState("");
+
+  const handleTextSelect = () => {
+    const selection = window.getSelection();
+    const selectedString = selection.toString();
+    setSelectedText(selectedString);
+    console.log(`${selectedString} is selected`);
+  };
+
   const handleTranslate = () => {
-    console.log("translate button is clicked", item.title);
-    // pass setText down
+    // window.location.href = `/translator?selectedTextFromNews=${selectedText}`;
+    window.open(`/translator?selectedTextFromNews=${selectedText}`, "_blank");
+    console.log(`translate button is clicked with ${selectedText}`);
   };
 
   return (
-    <div className="flex flex-row m-10 items-center text-left bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800">
+    <div
+      onMouseUp={handleTextSelect}
+      className="flex flex-row w-3/4 mx-auto text-left items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800"
+    >
       <img
         className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
         src={item.image}
@@ -25,12 +39,10 @@ export default function NewsCard({ item }) {
         <Link to={item.source.url} target="_blank">
           Read more at {`${item.source.name}`}
         </Link>
-        <Link to="../translator">
+        <div className="flex">
           <button onClick={handleTranslate}>Translate</button>
-        </Link>
-        <Link to="../notes">
           <button>Notes</button>
-        </Link>
+        </div>
       </div>
     </div>
   );
