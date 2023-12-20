@@ -12,9 +12,14 @@ export default function NewsCard({ item }) {
   };
 
   const handleTranslate = () => {
-    // window.location.href = `/translator?selectedTextFromNews=${selectedText}`;
     window.open(`/translator/text/${selectedText}`, "_blank");
-    console.log(`translate button is clicked with ${selectedText}`);
+    // console.log(`translate button is clicked with ${selectedText}`);
+  };
+
+  const handleNote = () => {
+    const selectedNews = `${item.title} | ${item.source.name}`;
+    window.open(`/notes/${selectedNews}`, "_blank");
+    console.log(`${selectedNews} is selected`);
   };
 
   return (
@@ -41,7 +46,7 @@ export default function NewsCard({ item }) {
         </Link>
         <div className="flex">
           <button onClick={handleTranslate}>Translate</button>
-          <button>Notes</button>
+          <button onClick={handleNote}>Notes</button>
         </div>
       </div>
     </div>

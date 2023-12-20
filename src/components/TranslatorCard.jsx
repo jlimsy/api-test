@@ -5,10 +5,7 @@ export default function TranslatorCard({ text, languageFrom, languageTo }) {
         <h1>
           {languageFrom} to {languageTo}
         </h1>
-        <div>
-          {text?.["responseData"]?.["translatedText"] ||
-            "Translation not found."}
-        </div>
+        <div>{text?.["responseData"]?.["translatedText"]}</div>
       </div>
     </div>
   );

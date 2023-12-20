@@ -19,6 +19,7 @@ export default function App() {
           element={<TranslatorPage />}
         />
         <Route path="/notes" element={<NotesPage />} />
+        <Route path="/notes/:selectedNews" element={<NotesPage />} />
       </Routes>
     </>
   );

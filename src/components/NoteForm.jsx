@@ -1,4 +1,20 @@
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+
 export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
+  const { selectedNews } = useParams();
+
+  useEffect(() => {
+    if (selectedNews) {
+      setNewNote((news) => ({
+        fields: {
+          ...news?.fields,
+          title: selectedNews,
+        },
+      }));
+    }
+  }, [selectedNews, setNewNote]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -34,6 +50,7 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
             Title of your babel:
           </label>
           <input
+            value={selectedNews}
             onChange={handleNewNoteTitle}
             className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
