@@ -102,6 +102,7 @@ export default function NewsEditModal({
               </div>
             </div>
             <button
+              type="button"
               className="text-white inline-flex items-center bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
               onClick={handleEditNote}
             >
