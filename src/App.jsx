@@ -14,6 +14,10 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/translator/" element={<TranslatorPage />} />
+        <Route
+          path="/translator/text/:selectedText"
+          element={<TranslatorPage />}
+        />
         <Route path="/notes" element={<NotesPage />} />
       </Routes>
     </>

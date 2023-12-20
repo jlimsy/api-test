@@ -11,30 +11,32 @@ export default function TranslatorSearchBar({
   setLanguageTo,
   fetchText,
 }) {
-  const { selectedTextFromNews } = useParams();
-  const [textFromNews, setTextFromNews] = useState("");
+  const { selectedText } = useParams();
+  // const [selectedTextExists, setSelectedTextExists] = useState(false);
 
   useEffect(() => {
-    if (selectedTextFromNews) {
-      setTextFromNews(selectedTextFromNews);
-      setQuery(selectedTextFromNews);
+    if (selectedText) {
+      // setSelectedTextExists(true);
+      setQuery(selectedText);
     }
-  }, [selectedTextFromNews, setQuery]);
-
-  useEffect(() => {
-    if (query !== selectedTextFromNews) {
-      setTextFromNews(query);
-    }
-  }, [query, selectedTextFromNews]);
+  }, [selectedText, setQuery]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
   const handleInputChange = (event) => {
-    console.log(event.target.value);
+    // if (!selectedTextExists) {
+    //   setQuery(event.target.value);
+    // }
     setQuery(event.target.value);
   };
+
+  // const handleInputChange = (event) => {
+  //   console.log("selectedText", selectedText);
+  //   console.log(event.target.value);
+  //   setQuery(event.target.value);
+  // };
 
   const handleTranslateClick = () => {
     fetchText(query, languageFrom, languageTo);
@@ -69,7 +71,7 @@ export default function TranslatorSearchBar({
         <input
           name="search"
           placeholder="babel here"
-          value={selectedTextFromNews ? selectedTextFromNews : query}
+          value={query}
           onChange={handleInputChange}
         />
       </label>

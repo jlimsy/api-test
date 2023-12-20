@@ -13,7 +13,7 @@ export default function NewsCard({ item }) {
 
   const handleTranslate = () => {
     // window.location.href = `/translator?selectedTextFromNews=${selectedText}`;
-    window.open(`/translator?selectedTextFromNews=${selectedText}`, "_blank");
+    window.open(`/translator/text/${selectedText}`, "_blank");
     console.log(`translate button is clicked with ${selectedText}`);
   };
 
