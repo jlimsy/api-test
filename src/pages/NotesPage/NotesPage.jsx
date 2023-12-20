@@ -90,7 +90,7 @@ export default function NotesPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center h-screen ">
         <Button color="gray">
           <Spinner aria-label="Spinner button example" size="xl" />
           <span className="pl-3">Loading...</span>
