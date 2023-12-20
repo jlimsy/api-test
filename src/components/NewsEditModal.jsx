@@ -5,6 +5,10 @@ export default function NewsEditModal({
   setEditNote,
   handleEdit,
 }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
@@ -12,6 +16,7 @@ export default function NewsEditModal({
   const handleEditNote = () => {
     handleEdit(item.id, editNote);
     setEditNote(editNote);
+    console.log(editNote);
   };
 
   const handleEditNoteTitle = (event) => {
@@ -67,7 +72,7 @@ export default function NewsEditModal({
               <span className="sr-only">Close modal</span>
             </button>
           </div>
-          <form className="p-4 md:p-5">
+          <form className="p-4 md:p-5" onSubmit={handleSubmit}>
             <div className="grid gap-4 mb-4 grid-cols-2">
               <div className="col-span-2 text-left">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -96,7 +101,6 @@ export default function NewsEditModal({
               </div>
             </div>
             <button
-              type="submit"
               className="text-white inline-flex items-center bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
               onClick={handleEditNote}
             >
