@@ -68,6 +68,7 @@ export default function SearchBar({
   country,
   setCountry,
   fetchNews,
+  validationMessage,
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -104,31 +105,35 @@ export default function SearchBar({
     </option>
   ));
   return (
-    <form
-      className="grid grid-cols-4 gap-5 justify-items-center"
-      onSubmit={handleSubmit}
-    >
-      <label>
-        Search for bites:
-        <input
-          name="search"
-          placeholder="bites"
-          value={query}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Country:
-        <select onChange={handleCountryChange}>{filterByCountry}</select>
-      </label>
-      <label>
-        Language:
-        <select onChange={handleLanguageChange}>{filterByLanguage}</select>
-      </label>
+    <>
+      <form
+        className="grid grid-cols-4 gap-5 justify-items-center"
+        onSubmit={handleSubmit}
+      >
+        <label>
+          Search for bites:
+          <input
+            name="search"
+            placeholder="bites"
+            value={query}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Country:
+          <select onChange={handleCountryChange}>{filterByCountry}</select>
+        </label>
+        <label>
+          Language:
+          <select onChange={handleLanguageChange}>{filterByLanguage}</select>
+        </label>
 
-      <button name="news" onClick={handleFetchNews}>
-        Search News
-      </button>
-    </form>
+        <button name="news" onClick={handleFetchNews}>
+          Search News
+        </button>
+      </form>
+
+      <p>{validationMessage}</p>
+    </>
   );
 }

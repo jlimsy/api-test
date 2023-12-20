@@ -9,6 +9,7 @@ const token =
 export default function NotesPage() {
   const [notes, setNotes] = useState("");
   const [newNote, setNewNote] = useState({});
+  const [editNote, setEditNote] = useState(null);
 
   useEffect(() => {
     async function fetchNotes() {
@@ -27,12 +28,7 @@ export default function NotesPage() {
     fetchNotes();
   }, []);
 
-  console.log("notes:", notes);
-
   const fetchCreateNote = async (newNote) => {
-    // console.log("fetching Create Note");
-    // console.log("newNote", JSON.stringify(newNote));
-
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -43,8 +39,36 @@ export default function NotesPage() {
       body: JSON.stringify(newNote),
     });
     const jsonNewNote = await response.json();
-    // console.log("jsonNewNote", jsonNewNote);
     setNotes({ records: [jsonNewNote, ...notes.records] });
+  };
+
+  const handleEdit = async (id) => {
+    const data = {
+      fields: {
+        title: "EDIT TITLE",
+        body: "Testing Edit Note",
+      },
+    };
+
+    const response = await fetch(`${url}${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    const jsonEditNote = await response.json();
+    setNotes(
+      notes?.records?.map((item) => {
+        if (item.id === id) {
+          return jsonEditNote;
+        } else {
+          return item;
+        }
+      })
+    );
   };
 
   const handleDelete = async (id) => {
@@ -56,40 +80,10 @@ export default function NotesPage() {
       },
     });
     const jsonDelNote = await response.json();
-    console.log("jsonDelNote", jsonDelNote);
     setNotes((notes) => ({
       records: notes?.records?.filter((item) => item.id !== jsonDelNote.id),
     }));
   };
-
-  // const handleEdit = async (id) => {
-  //   const data = {
-  //     fields: {
-  //       title: "EDIT TITLE",
-  //       body: "Testing Edit Note",
-  //     },
-  //   };
-
-  //   console.log("code to update airtablr goes here");
-  //   const response = await fetch(`${url}${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: JSON.stringify(data),
-  //   });
-  //   const jsonEditNote = await response.json();
-  //   setNotes(
-  //     notes.records.map((item) => {
-  //       if (item.id === id) {
-  //         return jsonEditNote;
-  //       } else {
-  //         return item;
-  //       }
-  //     })
-  //   );
-  // };
 
   return (
     <>
@@ -97,7 +91,12 @@ export default function NotesPage() {
       <div className="grid grid-cols-3">
         <div className="col-span-2 grid grid-cols-2 gap-10 content-center">
           {notes?.records?.map((item) => (
-            <NoteCard key={item.id} item={item} handleDelete={handleDelete} />
+            <NoteCard
+              key={item.id}
+              item={item}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+            />
           ))}
         </div>
         <div className="col-span-1 bg-teal-300">
@@ -105,6 +104,7 @@ export default function NotesPage() {
             fetchCreateNote={fetchCreateNote}
             newNote={newNote}
             setNewNote={setNewNote}
+            setEditNote={setEditNote}
           />
         </div>
       </div>

@@ -52,7 +52,6 @@ const googleLanguages = {
   Irish: "ga",
   Italian: "it",
   Japanese: "ja",
-  Javanese: "jv",
   Kannada: "kn",
   Kazakh: "kk",
   Khmer: "km",
