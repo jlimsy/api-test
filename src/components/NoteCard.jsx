@@ -11,8 +11,9 @@ export default function NoteCard({
   const [showModal, setShowModal] = useState(false);
 
   const handleEditClick = () => {
+    const selectedNote = `${item.fields.title} | ${item.fields.body}`;
     setShowModal(true);
-    console.log("Edit button clicked", item.id);
+    console.log("Edit button clicked", item.id, selectedNote);
   };
 
   const handleDeleteClick = () => {
