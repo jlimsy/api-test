@@ -21,7 +21,6 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
 
   const handleCreateNote = () => {
     fetchCreateNote(newNote);
-    // console.log("newNote", newNote);
   };
 
   const handleNewNoteTitle = (event) => {

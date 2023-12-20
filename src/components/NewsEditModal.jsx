@@ -1,6 +1,39 @@
-export default function NewsEditModal({ setShowModal }) {
+export default function NewsEditModal({
+  item,
+  setShowModal,
+  editNote,
+  setEditNote,
+  handleEdit,
+}) {
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleEditNote = () => {
+    handleEdit(item.id, editNote);
+    setEditNote(editNote);
+  };
+
+  const handleEditNoteTitle = (event) => {
+    console.log(event.target.value);
+    console.log("editNote", editNote);
+    setEditNote((note) => ({
+      fields: {
+        ...note?.fields,
+        title: event.target.value,
+      },
+    }));
+  };
+  const handleEditNoteBody = (event) => {
+    console.log(event.target.value);
+    console.log("editNote", editNote);
+
+    setEditNote((note) => ({
+      fields: {
+        ...note?.fields,
+        body: event.target.value,
+      },
+    }));
   };
 
   return (
@@ -36,41 +69,36 @@ export default function NewsEditModal({ setShowModal }) {
           </div>
           <form className="p-4 md:p-5">
             <div className="grid gap-4 mb-4 grid-cols-2">
-              <div className="col-span-2">
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+              <div className="col-span-2 text-left">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Title
                 </label>
                 <input
                   type="text"
-                  name="name"
                   id="name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type product name"
                   required=""
+                  onChange={handleEditNoteTitle}
                 />
               </div>
 
               <div className="col-span-2">
-                <label
-                  htmlFor="description"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                <label className="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">
                   Babel Body
                 </label>
                 <textarea
-                  id="description"
                   rows="4"
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
                   placeholder="Write product description here"
+                  onChange={handleEditNoteBody}
                 ></textarea>
               </div>
             </div>
             <button
               type="submit"
               className="text-white inline-flex items-center bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+              onClick={handleEditNote}
             >
               <svg
                 className="me-1 -ms-1 w-5 h-5"

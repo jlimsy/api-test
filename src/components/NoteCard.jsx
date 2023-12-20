@@ -1,11 +1,16 @@
 import { useState } from "react";
 import NewsEditModal from "./NewsEditModal";
 
-export default function NoteCard({ item, handleEdit, handleDelete }) {
+export default function NoteCard({
+  item,
+  handleEdit,
+  editNote,
+  setEditNote,
+  handleDelete,
+}) {
   const [showModal, setShowModal] = useState(false);
 
   const handleEditClick = () => {
-    // handleEdit(item.id);
     setShowModal(true);
     console.log("Edit button clicked", item.id);
   };
@@ -27,7 +32,13 @@ export default function NoteCard({ item, handleEdit, handleDelete }) {
         <p className="text-xs">Item ID: {item.id}</p>
         {showModal && (
           <>
-            <NewsEditModal setShowModal={setShowModal} />{" "}
+            <NewsEditModal
+              item={item}
+              handleEdit={handleEdit}
+              editNote={editNote}
+              setEditNote={setEditNote}
+              setShowModal={setShowModal}
+            />{" "}
             <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
           </>
         )}

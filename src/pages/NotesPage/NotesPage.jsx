@@ -42,24 +42,19 @@ export default function NotesPage() {
     setNotes({ records: [jsonNewNote, ...notes.records] });
   };
 
-  const handleEdit = async (id) => {
-    const data = {
-      fields: {
-        title: "EDIT TITLE",
-        body: "Testing Edit Note",
-      },
-    };
-
+  const handleEdit = async (id, editNote) => {
+    console.log("url to patch", `${url}${id}`);
     const response = await fetch(`${url}${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(editNote),
     });
 
     const jsonEditNote = await response.json();
+    console.log("jsonEditNote", jsonEditNote);
     setNotes(
       notes?.records?.map((item) => {
         if (item.id === id) {
@@ -94,12 +89,14 @@ export default function NotesPage() {
             <NoteCard
               key={item.id}
               item={item}
+              editNote={editNote}
+              setEditNote={setEditNote}
               handleEdit={handleEdit}
               handleDelete={handleDelete}
             />
           ))}
         </div>
-        <div className="col-span-1 bg-teal-300">
+        <div className="col-span-1 h-screen bg-teal-300">
           <NoteForm
             fetchCreateNote={fetchCreateNote}
             newNote={newNote}
