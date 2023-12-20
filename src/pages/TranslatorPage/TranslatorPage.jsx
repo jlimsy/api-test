@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import TranslatorSearchBar from "../../components/TranslatorSearchBar";
 import TranslatorCard from "../../components/TranslatorCard";
+import { TextContext } from "../../context/TextContext";
 
 export default function TranslatorPage() {
-  const [text, setText] = useState("");
+  const [text, setText] = useContext(TextContext);
   const [query, setQuery] = useState("");
   const [languageFrom, setLanguageFrom] = useState("en");
   const [languageTo, setLanguageTo] = useState("en");
