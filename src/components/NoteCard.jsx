@@ -37,13 +37,14 @@ export default function NoteCard({
         name="note"
         className="block max-w-sm p-6 m-10 h-dvh text-left bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
-        <p className="mb-5">{item.fields.title}</p>
-        <p className="font-bold">{item.fields.body}</p>
+        <p className="mb-3">{item.fields.title}</p>
         <hr className="h-1 my-4 border-0 rounded dark:bg-gray-700" />
+
+        <p className="font-bold mb-10">{item.fields.body}</p>
         <p className="text-sm">
           {new Date(item.createdTime).toLocaleString("en-US", options)}
         </p>
-        <p className="text-xs mb-5">{item.id}</p>
+        <p className="text-xs mb-5 text-beige">{item.id}</p>
         {showModal && (
           <>
             <NoteEditModal
@@ -58,11 +59,15 @@ export default function NoteCard({
         )}
         <button
           onClick={handleEditClick}
-          className=" text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+          className=" text-ivory bg-void hover:bg-beige hover:text-cherry focus:ring-4 focus:outline-none focus:ring-cherry font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
         >
           Edit
         </button>
-        <button name="deleteNote" onClick={handleDeleteClick}>
+        <button
+          name="deleteNote"
+          className="bg-ivory text-cherry hover:bg-beige"
+          onClick={handleDeleteClick}
+        >
           Delete
         </button>
       </div>
