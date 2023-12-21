@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewsEditModal from "./NewsEditModal";
+import NoteEditModal from "./NoteEditModal";
 
 const options = {
   year: "numeric",
@@ -46,7 +46,7 @@ export default function NoteCard({
         <p className="text-xs mb-5">{item.id}</p>
         {showModal && (
           <>
-            <NewsEditModal
+            <NoteEditModal
               item={item}
               handleEdit={handleEdit}
               editNote={editNote}

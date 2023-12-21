@@ -117,6 +117,7 @@ export default function SearchBar({
             placeholder="bites"
             value={query}
             onChange={handleInputChange}
+            className="ml-3"
           />
         </label>
         <label>

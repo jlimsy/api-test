@@ -61,6 +61,7 @@ export default function TranslatorSearchBar({
           placeholder="babel here"
           value={query}
           onChange={handleInputChange}
+          className="ml-3"
         />
       </label>
       <label>

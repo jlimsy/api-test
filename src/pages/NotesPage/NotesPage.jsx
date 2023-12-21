@@ -10,7 +10,7 @@ const token =
 export default function NotesPage() {
   const [notes, setNotes] = useState("");
   const [newNote, setNewNote] = useState({});
-  const [editNote, setEditNote] = useState(null);
+  const [editNote, setEditNote] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export default function NotesPage() {
   return (
     <>
       <div className="grid grid-cols-3 justify-center">
-        <div className="col-span-2 grid md:grid-cols-2 sm:grid-cols-1 gap-10 bg-neutral-800">
+        <div className="col-span-2 grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-10 bg-neutral-800">
           {notes?.records?.map((item) => (
             <NoteCard
               key={item.id}

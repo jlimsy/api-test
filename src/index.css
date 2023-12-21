@@ -27,7 +27,7 @@
     @apply text-void  dark:bg-ivory
   }
   input {
-    @apply block p-4 ps-10 ml-3 text-sm font-medium text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500
+    @apply block p-4 ps-10 text-sm font-medium text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500
   }
   button{
     @apply py-2.5 px-5 me-2 mb-2 text-sm font-medium text-ivory focus:outline rounded-lg border hover:bg-void hover:text-ivory focus:z-10 focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700
