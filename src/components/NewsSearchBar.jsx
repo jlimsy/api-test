@@ -131,6 +131,7 @@ export default function SearchBar({
 
         <button
           name="news"
+          type="button"
           onClick={handleFetchNews}
           className="bg-cherry text-ivory"
         >
