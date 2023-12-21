@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <header>
-      <nav className="bg-neutral-900 border-gray-200 dark:bg-neutral-900">
+      <nav>
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <NavLink
             to="/"
@@ -14,8 +14,8 @@ export default function Header() {
               className="h-8"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Babel Bites
+            <span className="text-void dark:text-ivory self-center text-2xl font-black whitespace-nowrap">
+              Babel <span className="italic text-cherry">Bites</span>.
             </span>
           </NavLink>
           <button
@@ -47,7 +47,7 @@ export default function Header() {
               <li>
                 <NavLink
                   to="/"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-700 md:p-0 dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 rounded md:border-0 md:hover:text-cherry md:p-0 dark:text-white md:dark:hover:text-cherry dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   aria-current="page"
                 >
                   Home
@@ -56,7 +56,7 @@ export default function Header() {
               <li>
                 <NavLink
                   to="/news"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-700 md:p-0 dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 rounded md:border-0 md:hover:text-cherry md:p-0 dark:text-white md:dark:hover:text-cherry dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   News
                 </NavLink>
@@ -64,7 +64,7 @@ export default function Header() {
               <li>
                 <NavLink
                   to="/translator"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-700 md:p-0 dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 rounded md:border-0 md:hover:text-cherry md:p-0 dark:text-white md:dark:hover:text-cherry dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Translator
                 </NavLink>
@@ -72,7 +72,7 @@ export default function Header() {
               <li>
                 <NavLink
                   to="/notes"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-700 md:p-0 dark:text-white md:dark:hover:text-teal-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 rounded md:border-0 md:hover:text-cherry md:p-0 dark:text-white md:dark:hover:text-cherry dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Notes
                 </NavLink>

@@ -92,8 +92,12 @@ export default function NotesPage() {
     return (
       <div className="flex items-center justify-center h-screen ">
         <Button color="gray">
-          <Spinner aria-label="Spinner button example" size="xl" />
-          <span className="pl-3">Loading...</span>
+          <Spinner
+            color="failure"
+            aria-label="Spinner button example"
+            size="xl"
+          />
+          <span className="pl-3 text-void">Fetching Babels...</span>
         </Button>
       </div>
     );
@@ -101,8 +105,8 @@ export default function NotesPage() {
 
   return (
     <>
-      <div className="grid grid-cols-3">
-        <div className="col-span-2 grid grid-cols-2 gap-10 content-center">
+      <div className="grid grid-cols-3 justify-center">
+        <div className="col-span-2 grid md:grid-cols-2 sm:grid-cols-1 gap-10 bg-neutral-800">
           {notes?.records?.map((item) => (
             <NoteCard
               key={item.id}
@@ -114,7 +118,13 @@ export default function NotesPage() {
             />
           ))}
         </div>
-        <div className="col-span-1 h-screen bg-teal-300">
+        <div className="col-span-1 min-h-screen bg-cherry">
+          <div
+            className="h-1/4"
+            style={{
+              backgroundImage: `url("https://images.unsplash.com/photo-1555432384-3b2fa7b650c9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+            }}
+          ></div>
           <NoteForm
             fetchCreateNote={fetchCreateNote}
             newNote={newNote}

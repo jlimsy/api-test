@@ -35,9 +35,9 @@ export default function NoteCard({
     <>
       <div
         name="note"
-        className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+        className="block max-w-sm p-6 m-10 h-dvh text-left bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
-        <p>{item.fields.title}</p>
+        <p className="mb-5">{item.fields.title}</p>
         <p className="font-bold">{item.fields.body}</p>
         <hr className="h-1 my-4 border-0 rounded dark:bg-gray-700" />
         <p className="text-sm">

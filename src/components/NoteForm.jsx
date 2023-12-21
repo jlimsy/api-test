@@ -17,6 +17,7 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    event.target.reset();
   };
 
   const handleCreateNote = () => {
@@ -42,11 +43,13 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
 
   return (
     <>
-      <h1 className="m-5 text-teal-400">Create your Babel here:</h1>
+      <h1 className="m-5 font-black text-3xl text-ivory p-2 dark:text-ivory">
+        Create your Babel here:
+      </h1>
       <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
         <div>
           <label className="block mb-2 text-gray-900 dark:text-teal-800">
-            Title of your babel:
+            Title:
             <input
               value={selectedNews}
               onChange={handleNewNoteTitle}
@@ -64,7 +67,12 @@ export default function NoteForm({ fetchCreateNote, newNote, setNewNote }) {
           </label>
         </div>
 
-        <button onClick={handleCreateNote}>Babel a note</button>
+        <button
+          onClick={handleCreateNote}
+          className="bg-void text-ivory hover:bg-beige hover:text-cherry border-0"
+        >
+          Babel a note
+        </button>
       </form>
     </>
   );

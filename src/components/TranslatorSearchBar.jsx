@@ -52,11 +52,10 @@ export default function TranslatorSearchBar({
   return (
     <form
       onSubmit={handleSubmit}
-      className="grid grid-cols-4 gap-5 justify-items-center"
+      className="grid grid-cols-4 gap-5 p-5 bg-void justify-items-center"
     >
       <label>
         Text to translate:
-        <div className="relative"></div>
         <input
           name="search"
           placeholder="babel here"
@@ -76,7 +75,11 @@ export default function TranslatorSearchBar({
           {selectTranslatorLanguage}
         </select>
       </label>
-      <button name="translate" onClick={handleTranslateClick}>
+      <button
+        name="translate"
+        onClick={handleTranslateClick}
+        className="bg-cherry text-ivory"
+      >
         Translate
       </button>
     </form>

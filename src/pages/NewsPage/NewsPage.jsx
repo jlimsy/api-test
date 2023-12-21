@@ -34,8 +34,12 @@ export default function NewsPage() {
     return (
       <div className="flex items-center justify-center h-screen ">
         <Button color="gray">
-          <Spinner aria-label="Spinner button example" size="xl" />
-          <span className="pl-3">Loading...</span>
+          <Spinner
+            color="failure"
+            aria-label="Spinner button example"
+            size="xl"
+          />
+          <span className="pl-3 text-void">Fetching Bites...</span>
         </Button>
       </div>
     );
@@ -43,7 +47,13 @@ export default function NewsPage() {
 
   return (
     <>
-      <h1>Search for news bites:</h1>
+      <div className="mb-5 flex justify-center items-center">
+        <hr className="w-1/4 " />
+        <h1 className="font-black text-3xl text-void p-2 dark:text-ivory">
+          Search for <span className="text-cherry italic">news bites</span>:
+        </h1>
+        <hr className="w-1/4 " />
+      </div>
       <NewsSearchBar
         query={query}
         setQuery={setQuery}
@@ -56,7 +66,7 @@ export default function NewsPage() {
         setValidationMessage={setValidationMessage}
       />
       <div className="flex justify-center items-center">
-        <div className="grid grid-row-5 gap-10">
+        <div className="grid grid-row-5 gap-5">
           {news?.articles?.map((item, idx) => (
             <NewsCard key={idx} item={item} />
           ))}

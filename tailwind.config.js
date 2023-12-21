@@ -8,6 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        ivory: "#f3ece4",
+        beige: "#e8dccc",
+        void: "#373234",
+        cherry: "#d84339",
         teal: {
           50: "#f2f9f9",
           100: "#ddeff0",

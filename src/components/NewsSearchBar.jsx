@@ -107,11 +107,11 @@ export default function SearchBar({
   return (
     <>
       <form
-        className="grid grid-cols-4 gap-5 justify-items-center"
+        className="grid grid-cols-4 gap-5 p-5 bg-void justify-items-center"
         onSubmit={handleSubmit}
       >
         <label>
-          Search for bites:
+          Search bites:
           <input
             name="search"
             placeholder="bites"
@@ -128,7 +128,11 @@ export default function SearchBar({
           <select onChange={handleLanguageChange}>{filterByLanguage}</select>
         </label>
 
-        <button name="news" onClick={handleFetchNews}>
+        <button
+          name="news"
+          onClick={handleFetchNews}
+          className="bg-cherry text-ivory"
+        >
           Search News
         </button>
       </form>

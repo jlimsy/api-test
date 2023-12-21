@@ -20,7 +20,14 @@ export default function TranslatorPage() {
 
   return (
     <>
-      <h1>Babel your bites here:</h1>
+      <div className="mb-5 flex justify-center items-center">
+        <hr className="w-1/4 " />
+        <h1 className="font-black text-3xl text-void p-2 dark:text-ivory">
+          Babel your
+          <span className="text-cherry italic"> bites</span>:
+        </h1>
+        <hr className="w-1/4 " />
+      </div>
 
       <TranslatorSearchBar
         query={query}
