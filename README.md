@@ -4,23 +4,23 @@ An application for bite-size news and a text translator for aspiring polyglots.
 
 ## Features
 
-- Primary: Filter for news from 30 countries and 22 languages
-- Primary: Click on news title to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
-- Primary: Translator page allows translation of 100+ languages
-- Primary: Notes page to post your comments (CRUD)
-- Secondary: Homepage displays top headlines and word of the day in key languages
-- Secondary: Highlight words to activate pop-up buttons (how to implement?) to translate into various languages or write your own notes
+- Filter for news from 30 countries and 22 languages
+- Highlight words or phrases from news to translate into various languages or write your own notes
+- Translator page allows translation to 100+ languages
+- Notes page to post notes about the corresponding headlines
+- Edit or delete your notes
 
 ## Wireframe
 
 ### Pages
 
-**Homepage**: tops news (fetch API) and a word of the day in different languages
+**Homepage**:
 
 **News Page**:
 
-- search for news of your topic of interest (fetch API again?) filtered by language (defaul) or country
-- highlight word or phrases > buttons pop up with options to "Translate" or "Post a note"
+- Search for news of your topic of interest (fetch API again?) filtered by language (defaul) or country
+- Highlight word or phrases to Translate
+- Post a note
 
 **Translation Page**:
 
@@ -34,7 +34,9 @@ An application for bite-size news and a text translator for aspiring polyglots.
 
 ## Icebox
 
-- Search bar on Notes Pages to filter notes
+- Search bar on Notes Pages to find notes
+- Sort notes by date - they seem to be randomly rendering?
+- Notes formatting - Airtable limitation?
 - Option to have the entire news article loaded
 
 ---
