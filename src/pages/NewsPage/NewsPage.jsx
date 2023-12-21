@@ -27,6 +27,8 @@ export default function NewsPage() {
 
     if (jsonNews.totalArticles === 0) {
       setValidationMessage("No articles found. Please refine your search.");
+    } else {
+      setValidationMessage("");
     }
   }
 
@@ -66,11 +68,13 @@ export default function NewsPage() {
         setValidationMessage={setValidationMessage}
       />
       <div className="flex justify-center items-center">
-        <div className="grid grid-row-5 gap-5">
-          {news?.articles?.map((item, idx) => (
-            <NewsCard key={idx} item={item} />
-          ))}
-        </div>
+        {
+          <div className="grid grid-row-5 gap-5">
+            {news?.articles?.map((item, idx) => (
+              <NewsCard key={idx} item={item} />
+            ))}
+          </div>
+        }
       </div>
     </>
   );

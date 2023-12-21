@@ -29,7 +29,7 @@ export default function NewsCard({ item }) {
         className="flex flex-row w-1/2 mx-auto text-left items-center rounded-lg md:flex-row"
       >
         <img
-          className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+          className="md:h-auto md:w-96 md:rounded-lg"
           src={item.image}
           alt=""
         />
@@ -42,25 +42,31 @@ export default function NewsCard({ item }) {
             {new Date(item.publishedAt).toString()}
           </p>
           <p className="mb-3 text-void dark:text-ivory">{item.content}</p>
-          <p className="font-semibold">
-            Read more at{" "}
-            <Link to={item.source.url} target="_blank" className="text-cherry">
-              {`${item.source.name}`}
-            </Link>
-          </p>
-          <div className="flex justify-end">
-            <button
-              onClick={handleTranslate}
-              className="bg-void hover:bg-beige hover:text-cherry dark:bg-ivory dark:text-ivory"
-            >
-              Translate
-            </button>
-            <button
-              onClick={handleNote}
-              className="bg-void hover:bg-beige hover:text-cherry dark:bg-ivory dark:text-ivory"
-            >
-              Notes
-            </button>
+          <div className="grid grid-col-3">
+            <p className="font-semibold">
+              Read more at{" "}
+              <Link
+                to={item.source.url}
+                target="_blank"
+                className="text-cherry"
+              >
+                {`${item.source.name}`}
+              </Link>
+            </p>
+            <div className="flex justify-end">
+              <button
+                onClick={handleTranslate}
+                className="bg-void hover:bg-beige hover:text-cherry dark:bg-ivory dark:text-ivory"
+              >
+                Translate
+              </button>
+              <button
+                onClick={handleNote}
+                className="bg-void hover:bg-beige hover:text-cherry dark:bg-ivory dark:text-ivory"
+              >
+                Notes
+              </button>
+            </div>
           </div>
         </div>
       </div>

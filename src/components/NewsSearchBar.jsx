@@ -122,11 +122,15 @@ export default function SearchBar({
         </label>
         <label>
           Country:
-          <select onChange={handleCountryChange}>{filterByCountry}</select>
+          <select value={country} onChange={handleCountryChange}>
+            {filterByCountry}
+          </select>
         </label>
         <label>
           Language:
-          <select onChange={handleLanguageChange}>{filterByLanguage}</select>
+          <select value={language} onChange={handleLanguageChange}>
+            {filterByLanguage}
+          </select>
         </label>
 
         <button
@@ -138,8 +142,13 @@ export default function SearchBar({
           Search News
         </button>
       </form>
-
-      <p>{validationMessage}</p>
+      <div className="flex justify-center m-10">
+        {validationMessage && (
+          <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            {validationMessage}
+          </div>
+        )}
+      </div>
     </>
   );
 }
