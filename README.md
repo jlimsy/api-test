@@ -15,29 +15,37 @@ An application for bite-size news and a text translator for aspiring polyglots.
 ### Pages
 
 **Homepage**:
+![Alt text](public/edit/01Homepage.png)
 
 **News Page**:
 
-- Search for news of your topic of interest (fetch API again?) filtered by language (defaul) or country
+- Search for news of your topic of interest filtered by country or language
 - Highlight word or phrases to Translate
-- Post a note
+- Post a note on the headline of interest
+
+![Alt text](public/edit/02SearchNews.png)
+![Alt text](public/edit/03HighlightText.png)
 
 **Translation Page**:
 
 - input your own word > select language
-- receives highlighted word from News Page (how to receive highlighted word from News Page?) as value in the input bar
+- receives selected word or phrases from News Page to translate
+
+![Alt text](public/edit/04Translate.png)
 
 **Notes Page:**
 
 - create your own notes
-- receives highlighted phrase from News Page, and identifies News Title, and Source
+- receives selected headline from News Page for you to make your own commentary
+
+![Alt text](public/edit/05CreateNotes.png)
 
 ## Icebox
 
 - Search bar on Notes Pages to find notes
 - Sort notes by date - they seem to be randomly rendering?
 - Notes formatting - Airtable limitation?
-- Option to have the entire news article loaded
+- Responsive design for smaller devices
 
 ---
 
