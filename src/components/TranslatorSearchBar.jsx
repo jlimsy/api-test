@@ -23,6 +23,7 @@ export default function TranslatorSearchBar({
     event.preventDefault();
   };
 
+  // loads params into the search bar
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };

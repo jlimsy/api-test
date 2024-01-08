@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function HomePage() {
   return (
     <>
-      <div className="grid grid-cols-4 grid-rows-2 h-screen">
+      <div className="grid grid-cols-4 grid-rows-2 h-auto">
         <div className="col-span-1 flex justify-center items-center">
           <div className="italic text-xl text-center -rotate-90">
             <hr className="h-1 bg-cherry" />
@@ -12,21 +12,21 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid col-span-2 grid-cols-3 gap-5 h-dvh">
-          <div className="col-span-3 mt-5 mb-5 h-dvh">
-            <h1 className="text-6xl font-black opacity-10">
+        <div className="grid col-span-2 grid-cols-3 gap-5 h-auto">
+          <div className="col-span-3 mt-5 mb-5 h-auto">
+            <h1 className="lg:text-6xl font-black opacity-10 md:text-4xl sm:text-2xl">
               Babel <span className="italic text-cherry">Bites</span>.
             </h1>
-            <h1 className="text-6xl font-black opacity-25">
+            <h1 className="lg:text-6xl font-black opacity-25 md:text-4xl sm:text-2xl">
               Babel <span className="italic text-cherry">Bites</span>.
             </h1>
-            <h1 className="text-6xl font-black opacity-50">
+            <h1 className="lg:text-6xl  font-black opacity-50 md:text-4xl sm:text-2xl">
               Babel <span className="italic text-cherry">Bites</span>.
             </h1>
-            <h1 className="text-6xl font-black opacity-75">
+            <h1 className="lg:text-6xl font-black opacity-75 md:text-4xl sm:text-2xl">
               Babel <span className="italic text-cherry">Bites</span>.
             </h1>
-            <h1 className="text-6xl font-black">
+            <h1 className="lg:text-6xl font-black md:text-4xl sm:text-2xl">
               Babel <span className="italic text-cherry">Bites</span>.
             </h1>
           </div>

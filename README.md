@@ -39,6 +39,7 @@ An application for bite-size news and a text translator for aspiring polyglots.
 - receives selected headline from News Page for you to make your own commentary
 
 ![Alt text](public/edit/05CreateNotes.png)
+![Alt text](public/edit/06EditNotes.png)
 
 ## Icebox
 
