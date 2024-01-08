@@ -6,7 +6,7 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/flowbite-react/lib/**/*.js",
+    "./node_modules/flowbite-react/lib/**/**/*.js",
   ],
   theme: {
     extend: {
